@@ -4,7 +4,7 @@ services:
  - docker
 
 befor_install:
- - docker build -t awmn/docker-react -f Dockerfile.dev .
+ - docker build -t swmn/docker-react -f Dockerfile.dev .
 
 script:
  - docker run -e CI=true swmn/docker-react npm run test
