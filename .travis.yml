@@ -8,3 +8,16 @@ befor_install:
 
 script:
  - docker run -e CI=true swmn/docker-react npm run test
+
+deploy:
+ provider: elasticbeanstalk
+ region: "ap-northeast-1"
+ app: "docker-react-otake"
+ env: "docker-react-env-otake"
+ bucket_name: "elasticbeanstalk-ap-northeast-1-085107194442"
+ bucket_path: "docker-react-otake"
+ on:
+  branch: master
+ access_key_id: $AWS_ACCESS_KEY
+ secret_access_key:
+  secure: "$AWS_SECRET_KEY"
